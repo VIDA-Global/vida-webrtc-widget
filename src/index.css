@@ -1,0 +1,32 @@
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.text-2xs {
+    font-size: 0.5rem;
+    line-height: 0.75rem;
+}
+
+
+.w-container {
+    width: 420px;
+    min-height: 82px;
+    position: absolute;
+}
+
+.w-name {
+    width: 200px;
+}
+
+.bg-primary {
+    background-color: rgb(59 130 246);
+}
+
+.bg-warning {
+    background-color: rgb(244 63 94);
+}
+
+.bg-gray {
+    background-color: rgb(107 114 128);
+}
