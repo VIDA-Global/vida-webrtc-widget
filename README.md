@@ -38,22 +38,40 @@ Once built, the widget can be integrated by creating a div with the proper class
 
 **Note that the resources should only be included once in a page, even if injecting the widget several times.**
 
-Here follows an example integration :
+Here follows an example integration:
 
 ```html
-...
-<div id="something-in-your-website">
-  <div class="vida-agent-widget" data-agent="pressdemo">
-  </div>
-</div>
-...
-...
-<div id="something-else-in-your-website">
-  <div class="vida-agent-widget" data-agent="vidasales">
-  </div>
-</div>
-<!-- /!\ Only add these two tags once per page -->
-<link rel="stylesheet" href="https://vidapublic.s3.us-east-2.amazonaws.com/vida-webrtc-widget/index.css">
-<script src="https://vidapublic.s3.us-east-2.amazonaws.com/vida-webrtc-widget/index.js"></script>
-...
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="An embeddable WebRTC client for calling Vida Agents."
+    />
+    <link rel="icon" type="image/png" href="%PUBLIC_URL%/favicon.png" />
+    <title>Vida Widget Demo</title>
+  </head>
+  <body style="margin: 25px">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <!-- 
+      Remove the "d-" from the data tags below to use various options:
+      -- data-agent = the vida agent username you want to embed (required)
+      -- data-apiUsername = your optional API username. if not provided we will automatically fetch temp credentials
+      -- data-apiToken = your optional API token. if not provided we will automatically fetch temp credentials
+      -- data-autoRegister = whether the webrtc SIP client should automatically register on page load (if not set it will register when the first call is made)
+    -->
+    <div id="webrtc-widget" data-agent="vidasales" d-data-apiUsername="yourAgentUsername" data-apiToken="yourAgentToken" d-data-autoRegister="true" class="vida-agent-widget"></div>
+    <link rel="stylesheet" href="https://vidapublic.s3.us-east-2.amazonaws.com/vida-webrtc-widget/index.css">
+    <script src="https://vidapublic.s3.us-east-2.amazonaws.com/vida-webrtc-widget/index.js"></script>
+  </body>
+</html>
+
 ```
+
+## Live example
+
+A live example can be seen here: [Live Example](https://vidapublic.s3.us-east-2.amazonaws.com/vida-webrtc-widget/index.html)
+
