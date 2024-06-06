@@ -20,7 +20,7 @@
     "regenerator-runtime": "^0.14.1",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
     "web-vitals": "^0.2.4",
-    "webrtc-adapter": "^7.2.4"
+    "webrtc-adapter": "^9.0.1"
   },
   "scripts": {
     "eject": "react-scripts eject",

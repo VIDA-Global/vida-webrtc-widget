@@ -268,12 +268,17 @@ class WebRTCClient extends Component {
         wsServers: ["wss://"+this.state.sipServer+":7443/ws"],
         traceSip:traceSip
       },
-      sessionDescriptionHandlerFactoryOptions: {
+       sessionDescriptionHandlerFactoryOptions: {
         peerConnectionOptions: {          
-          iceCheckingTimeout: 15000,
-          rtcConfiguration: {            
+          iceCheckingTimeout: 6000,
+          iceTransportPolicy: (this.props.iceTransportPolicy) ? this.props.iceTransportPolicy : "all",
+          iceCandidatePoolSize: 3,
+          rtcConfiguration: {
             rtcpMuxPolicy: 'negotiate',
             iceServers: [
+              {
+                urls: 'stun:stun3.l.google.com:19302'
+              },
               {
                 urls: 'stun:turn.vida.dev:3478'
               },
@@ -288,8 +293,10 @@ class WebRTCClient extends Component {
                 credential: '4so7NvXYWsV45T03Errjiap2PJ8'
               },
             ],
-            iceTransportPolicy: (this.props.iceTransportPolicy) ? this.props.iceTransportPolicy : "relay"
-          }
+            iceCheckingTimeout: 6000,
+            iceTransportPolicy: (this.props.iceTransportPolicy) ? this.props.iceTransportPolicy : "all",
+            iceCandidatePoolSize: 3,
+          }          
         },
         constraints: {
           audio: true,
