@@ -131,55 +131,52 @@ export default function EmbedVidaAgent(props) {
   }, [apiUsername, apiToken, targetAccount, autoRegister]);
 
   return (
-    <>      
-      <div className="bg-gray-800 text-white rounded-2xl border border-shadow shadow-xl drop-shadow-2xl p-3 flex flex-row gap-4 w-container">
+    <> 
+      <div className={`main-container text-white p-3 flex flex-row gap-4 ${status && status == "CONNECTED" ? "main-container-full" : ""}`}>
         {targetAccount && 
         <>
-          <div className="flex flex-row items-center gap-2">
-            <img src={targetAccount?.details?.image} className="rounded-full w-14" />
-            <div className="">
-              <div className="font-medium w-name">{targetAccount?.details?.name}</div>
-              <div className="mt-1 text-xs text-gray-300">
-                {status === "CONNECTING" && <div>Connecting...</div>}
-                {status === "CONNECTED" && <Timer />}
-                {status === "DISCONNECTED" && <div>Disconnected</div>}
-                {!status  && <div>Talk with our AI!</div>}
+          <div className={`avatar-container flex flex-row items-center gap-2 ${status && status == "CONNECTING" ? "loading" : ""}`}>
+            <button
+              className="curser-pointer flex-shrink-0"
+              onClick={() => handleStartCall()}
+              >
+              <img src={targetAccount?.details?.image} className="rounded-full w-14" />
+            </button>
+            {(!status || (status === "DISCONNECTED" || status === "CONNECTING")) && 
+            <div className="margin-left font-bold">
+              <div className="mt-1 text-xs text-white text-center">
+                {!status  && <div className="w-14">Talk with our AI!</div>}
+                {status === "CONNECTING" && <div>calling...</div>}
+                {status === "DISCONNECTED" && <div>ended</div>}
               </div>
             </div>
-          </div>
-          
-          <div className="flex flex-row w-full content-center place-content-end gap-2">
-            {(!status || status === "DISCONNECTED") && 
-            <div className="flex items-center">
-              <button
-                className="rounded-2xl bg-primary py-1 px-3"
-                onClick={() => handleStartCall()}
-              >
-                Start Call
-              </button>
-            </div>
             }
             {(status === "CONNECTED") && 
-            <div className="flex items-center">
-              <button
-                className="rounded-2xl bg-gray py-1 px-3"
-                onClick={handleToggleAudio}
-              >
-                {toggleAudioMute ? "Unmute" : "Mute"}
-              </button>
+            <div className="flex flex-col w-full content-center place-content-end gap-2 text-xs margin-left ">
+              <div className="flex items-center">
+                <button
+                  className="rounded-2xl bg-gray py-1 px-2"
+                  onClick={handleToggleAudio}
+                >
+                  {toggleAudioMute ? "Unmute" : "Mute"}
+                </button>
+              </div>
+              <div className="flex items-center">
+                <button
+                  className="rounded-2xl bg-warning py-1 px-3"
+                  onClick={handleHangup}
+                >
+                  End
+                </button>
+              </div>
+              {/*
+              <div className="flex items-center">
+                <Timer />
+              </div>
+              */}
             </div>
             }
-            {(status === "CONNECTED") && 
-            <div className="flex items-center">
-              <button
-                className="rounded-2xl bg-warning py-1 px-3"
-                onClick={handleHangup}
-              >
-                End
-              </button>
-            </div>
-            }
-          </div>
+          </div>          
         </>
         }
         {!targetAccount && !loading && 

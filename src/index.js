@@ -18,7 +18,7 @@ const widgetDivs = document.querySelectorAll('.vida-agent-widget');
 widgetDivs.forEach(div => {
     ReactDOM.render(
       <React.StrictMode>
-        <App agent={div.dataset.agent} apiUsername={div.dataset.apiusername} apiToken={div.dataset.apitoken} autoRegister={div.dataset.autoregister} />
+        <App agent={div.dataset.agent} apiUsername={div.dataset.apiusername} apiToken={div.dataset.apitoken} autoRegister={div.dataset.autoregister} size={div.dataset.size} />
       </React.StrictMode>,
         div
     );
