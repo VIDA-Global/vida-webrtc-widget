@@ -83,7 +83,6 @@ export default function EmbedVidaAgent(props) {
     console.log("hangup call now");
     console.log(hangupCallNow)
 
-    setDestination("");
     setInitiateCallNow(false);
     setHangupCallNow(false);
     setStatus("DISCONNECTED");
@@ -95,11 +94,10 @@ export default function EmbedVidaAgent(props) {
 
     setHangupCallNow(true);
     setInitiateCallNow(false);
-    setDestination("");    
     setStatus("DISCONNECTED");
     setTimeout(function() {
       setStatus(null);
-    }, 5000)
+    }, 3000)
   };
 
   const handleConnected = () => {
@@ -124,23 +122,23 @@ export default function EmbedVidaAgent(props) {
     if((!apiUsername || !apiToken) && autoRegister) {
       handleFetchTempUser();
     }
-    if(!targetAccount) {
-      handleFetchAccount();
-    }
+    //if(!targetAccount) {
+    //  handleFetchAccount();
+    //}
     console.log(props.autoRegister)
   }, [apiUsername, apiToken, targetAccount, autoRegister]);
 
   return (
     <> 
       <div className={`main-container text-white p-3 flex flex-row gap-4 ${status && status == "CONNECTED" ? "main-container-full" : ""}`}>
-        {targetAccount && 
+        {destination && 
         <>
           <div className={`avatar-container flex flex-row items-center gap-2 ${status && status == "CONNECTING" ? "loading" : ""}`}>
             <button
               className="curser-pointer flex-shrink-0"
               onClick={() => handleStartCall()}
               >
-              <img src={targetAccount?.details?.image} className="rounded-full w-14" />
+              <img src="https://vidapublic.s3.us-east-2.amazonaws.com/vida-icon-blue.png" className="rounded-full w-14" />
             </button>
             {(!status || (status === "DISCONNECTED" || status === "CONNECTING")) && 
             <div className="margin-left font-bold">
@@ -179,7 +177,7 @@ export default function EmbedVidaAgent(props) {
           </div>          
         </>
         }
-        {!targetAccount && !loading && 
+        {!destination && !loading && 
           <div className="flex flex-row items-center text-center gap-2">You must configure a Vida Agent username on your HTML element.</div>
         }
       </div>
