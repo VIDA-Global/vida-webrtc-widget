@@ -2,6 +2,10 @@
 
 A simple embeddable script to allow Vida agents to be called from any website via SIP over WebRTC.
 
+## Live example
+
+A live example can be seen here: [Live Example](https://vidapublic.s3.us-east-2.amazonaws.com/vida-webrtc-widget/index.html)
+
 ### `npm install`
 
 Install all dependencies
@@ -77,8 +81,4 @@ Here follows an example integration:
 </html>
 
 ```
-
-## Live example
-
-A live example can be seen here: [Live Example](https://vidapublic.s3.us-east-2.amazonaws.com/vida-webrtc-widget/index.html)
 
