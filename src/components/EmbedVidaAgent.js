@@ -75,7 +75,9 @@ export default function EmbedVidaAgent(props) {
     setInitiateCallNow(false);
     setHangupCallNow(false);
     setStatus("DISCONNECTED");
-
+    setTimeout(function() {
+      setStatus(null);
+    }, 3000)
   };
 
   const handleHangup = () => {
