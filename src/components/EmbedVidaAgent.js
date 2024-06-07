@@ -175,10 +175,10 @@ export default function EmbedVidaAgent(props) {
           <div className="flex flex-row items-center text-center gap-2">You must configure a Vida Agent username on your HTML element.</div>
         }
       </div>
-      <video id="localVideo" autoPlay playsInline />
-      <video id="remoteVideo" autoPlay playsInline />
+      <video id="localVideo" className="hidden" autoPlay playsInline />
+      <video id="remoteVideo" className="hidden" autoPlay playsInline />
       {apiUsername && apiToken && autoRegister &&
-        <div className="hidden">          
+        <div className="hidden">
           <WebRTCClient
             video={false}
             autoRegister={true}
