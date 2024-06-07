@@ -25,8 +25,6 @@ export default function EmbedVidaAgent(props) {
         return res.json();
       })
       .then((data) => {
-        console.log("Temp user info")
-        console.log(data)        
         setApiToken(data.token);
         setApiUsername(data.username);
         return data;
@@ -46,8 +44,6 @@ export default function EmbedVidaAgent(props) {
         return res.json();
       })
       .then((data) => {
-        console.log("Fetched Account")
-        console.log(data)
         setTargetAccount(data);
         setLoading(false);
         return data;
@@ -61,8 +57,6 @@ export default function EmbedVidaAgent(props) {
 
   const handleStartCall = async () => {
     console.log("Starting call...")
-    console.log(apiUsername)
-    console.log(apiToken)
     if(!apiUsername || !apiToken) {
       console.log("fetching temp account first")
       await handleFetchTempUser()
@@ -77,8 +71,6 @@ export default function EmbedVidaAgent(props) {
 
   const handleDisconnect = () => {
     console.log("disconnect");
-    console.log("hangup call now");
-    console.log(hangupCallNow)
 
     setInitiateCallNow(false);
     setHangupCallNow(false);
@@ -112,17 +104,13 @@ export default function EmbedVidaAgent(props) {
   };
 
   
-  
   useEffect(() => {
-    console.log(apiUsername)
-    console.log(apiToken)
     if((!apiUsername || !apiToken) && autoRegister) {
       handleFetchTempUser();
     }
     //if(!targetAccount) {
     //  handleFetchAccount();
-    //}
-    console.log(props.autoRegister)
+    //}    
   }, [apiUsername, apiToken, targetAccount, autoRegister]);
 
   return (
