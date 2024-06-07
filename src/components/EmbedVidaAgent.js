@@ -135,7 +135,7 @@ export default function EmbedVidaAgent(props) {
               className="avatar-button curser-pointer"
               onClick={() => handleStartCall()}
               >
-              <img src="https://vidapublic.s3.us-east-2.amazonaws.com/vida-icon-blue.png" className="avatar-logo rounded-full w-14" />
+              <img src="https://vidapublic.s3.us-east-2.amazonaws.com/vida-icon-blue.png" className="avatar-logo rounded-full" />
             </button>
             {(!status || (status === "DISCONNECTED" || status === "CONNECTING")) && 
             <div className="avatar-text font-bold">

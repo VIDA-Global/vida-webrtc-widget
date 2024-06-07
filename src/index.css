@@ -87,7 +87,7 @@
 .vida-webrtc-widget .avatar-container .avatar-logo {
     background-color: transparent !important;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4) !important; /* Slight drop shadow */
-
+    width: 3.5rem !important;
 }
 
 .vida-webrtc-widget .avatar-container button {
@@ -181,10 +181,6 @@
 
 .vida-webrtc-widget .rounded-full {
     border-radius: 9999px !important;
-}
-
-.vida-webrtc-widget .w-14 {
-    width: 3.5rem !important;
 }
 
 .vida-webrtc-widget .flex-col {
