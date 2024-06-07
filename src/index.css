@@ -7,8 +7,7 @@
     outline: none !important;
     cursor: pointer !important;    
     height: 72px !important;
-    width: 72px !important;
-    position: absolute !important;
+    width: 72px !important;    
     border-radius: 1rem !important; /* 16px */
     overflow: hidden !important;
     /*transition: width 0.5s, color 0.5s !important;*/
