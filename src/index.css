@@ -5,7 +5,6 @@
 
 .vida-webrtc-widget .main-container {
     outline: none !important;
-    cursor: pointer !important;    
     height: 72px !important;
     width: 72px !important;    
     border-radius: 1rem !important; /* 16px */
@@ -71,8 +70,7 @@
 }
 
 .vida-webrtc-widget .avatar-container {
-    overflow: hidden !important;
-    cursor: pointer !important;
+    overflow: hidden !important;    
     background-color: transparent !important;
 }
 
@@ -84,6 +82,7 @@
     padding-left: 5px !important;
     padding-right: 5px !important;
     flex-shrink: 0 !important;
+    cursor: pointer !important;
 }
 
 .vida-webrtc-widget .avatar-container .avatar-logo {
