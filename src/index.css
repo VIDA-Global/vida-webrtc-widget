@@ -10,11 +10,12 @@
     width: 72px !important;    
     border-radius: 1rem !important; /* 16px */
     overflow: hidden !important;
-    /*transition: width 0.5s, color 0.5s !important;*/
-    transition: background-color 0.2s, border-radius 0.2s, box-shadow 0.2s, filter 0.5s !important;
+    transition: background-color 0.2s, border-radius 0.2s, box-shadow 0.2s, filter 0.5s;
     background-color: #1F2937 !important;
     z-index: 99 !important;
     background-color: transparent !important;
+    padding: 0px;
+    color: transparent !important;
 }
 .vida-webrtc-widget .main-container-expanded {
     width: 150px !important;
@@ -40,28 +41,29 @@
 }
 
 @keyframes rotate-shake {
-    0% { transform: rotate(0deg) !important; }
-  25% { transform: rotate(10deg) !important; }
-  50% { transform: rotate(0deg) !important; }
-  75% { transform: rotate(-10deg) !important; }
-  100% { transform: rotate(0deg) !important; }
+    0% { transform: rotate(0deg); }
+  25% { transform: rotate(10deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-10deg); }
+  100% { transform: rotate(0deg); }
 }
 
 @keyframes blink {
   0%, 100% {
-    opacity: 1 !important;
+    opacity: 1;
   }
   50% {
-    opacity: 0 !important;
+    opacity: 0;
   }
 }
 
-.vida-webrtc-widget .loading {
-  animation: blink 1s infinite !important;
+.vida-webrtc-widget .call-loading {
+  animation: blink 1s infinite;
 }
 
 .vida-webrtc-widget .welcome-text {
     width: auto !important;
+    text-align: center !important;
 }
 
 .vida-webrtc-widget .call-buttons {
@@ -78,6 +80,8 @@
     background-color: transparent !important;
     outline: none !important;
     box-shadow: none !important; /* Remove any default box-shadow */
+    padding: 0 !important;
+    padding-left: 5px !important;
 }
 
 .vida-webrtc-widget .avatar-container .avatar-logo {
@@ -92,10 +96,19 @@
 }
 
 .vida-webrtc-widget .avatar-container img:hover {
-  animation: rotate-shake 0.5s !important;
+  animation: rotate-shake 0.5s;
   cursor: pointer !important;
 }
 
+.vida-webrtc-widget .main-container .avatar-text {
+    color: transparent !important;
+}
+.vida-webrtc-widget .main-container-expanded .avatar-text {
+    color: #FFF !important;
+}
+.vida-webrtc-widget .main-container:hover .avatar-text {
+    color: #FFF !important;
+}
 .vida-webrtc-widget .avatar-text {
     padding-right: 8px !important;
 }
@@ -166,10 +179,6 @@
     cursor: pointer !important;
 }
 
-.vida-webrtc-widget .flex-shrink-0 {
-    flex-shrink: 0 !important;
-}
-
 .vida-webrtc-widget .rounded-full {
     border-radius: 9999px !important;
 }
@@ -235,7 +244,7 @@
     color: #ffffff !important;
     border: none !important;
     border-radius: 0.25rem !important;
-    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     cursor: pointer !important;
     outline: none !important;
 }

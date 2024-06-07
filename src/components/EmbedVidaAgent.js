@@ -26,9 +26,7 @@ export default function EmbedVidaAgent(props) {
       })
       .then((data) => {
         console.log("Temp user info")
-        console.log(data)
-        localStorage.setItem("username", data.username);
-        localStorage.setItem("token", data.token);
+        console.log(data)        
         setApiToken(data.token);
         setApiUsername(data.username);
         return data;
@@ -129,22 +127,22 @@ export default function EmbedVidaAgent(props) {
 
   return (
     <> 
-      <div className={`main-container text-white flex flex-row gap-4 ${status && status == "CONNECTED" ? "main-container-expanded" : ""}`}>
+      <div className={`main-container flex flex-row gap-4 ${((status && status == "CONNECTED") || props.size == "expanded") ? "main-container-expanded" : ""}`}>
         {destination && 
         <>
-          <div className={`avatar-container flex flex-row items-center gap-1 ${status && status == "CONNECTING" ? "loading" : ""}`}>
+          <div className={`avatar-container flex flex-row items-center gap-1 ${status && status == "CONNECTING" ? "call-loading" : ""}`}>
             <button
-              className="avatar-button curser-pointer flex-shrink-0"
+              className="avatar-button curser-pointer"
               onClick={() => handleStartCall()}
               >
               <img src="https://vidapublic.s3.us-east-2.amazonaws.com/vida-icon-blue.png" className="avatar-logo rounded-full w-14" />
             </button>
             {(!status || (status === "DISCONNECTED" || status === "CONNECTING")) && 
             <div className="avatar-text font-bold">
-              <div className="mt-1 text-xs text-white text-center">
+              <div className="mt-1 text-xs text-center">
                 {!status  && <div className="welcome-text">{props.welcome || "Talk to our AI!"}</div>}
-                {status === "CONNECTING" && <div>calling...</div>}
-                {status === "DISCONNECTED" && <div>ended...</div>}
+                {status === "CONNECTING" && <div className="welcome-text">calling...</div>}
+                {status === "DISCONNECTED" && <div className="welcome-text">ended...</div>}
               </div>
             </div>
             }
