@@ -5,7 +5,7 @@ function App(props) {
 
   return (
     <div>
-      <EmbedVidaAgent agent={props.agent} apiUsername={props.apiUsername} apiToken={props.apiToken} autoRegister={props.autoRegister} size={props.size} />
+      <EmbedVidaAgent agent={props.agent} welcome={props.welcome} size={props.size} />
     </div>
   );
 }

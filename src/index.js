@@ -12,13 +12,13 @@ const axiosInstance = axios.create({
 export default axiosInstance;
 
 // Find all widget divs
-const widgetDivs = document.querySelectorAll('.vida-agent-widget');
+const widgetDivs = document.querySelectorAll('.vida-webrtc-widget');
 
 // Inject our React App into each class
 widgetDivs.forEach(div => {
     ReactDOM.render(
       <React.StrictMode>
-        <App agent={div.dataset.agent} apiUsername={div.dataset.apiusername} apiToken={div.dataset.apitoken} autoRegister={div.dataset.autoregister} size={div.dataset.size} />
+        <App agent={div.dataset.agent} welcome={div.dataset.welcome} size={div.dataset.size} />
       </React.StrictMode>,
         div
     );

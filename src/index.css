@@ -1,50 +1,44 @@
 /* ./src/index.css */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.vida-webrtc-widget {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
-.text-2xs {
-    font-size: 0.5rem;
-    line-height: 0.75rem;
 }
 
-
-.main-container {
-    width: 82px;
-    height: 82px;
+.vida-webrtc-widget .main-container {
+    outline: none;
+    cursor: pointer;    
+    height: 72px;
+    width: 72px;
     position: absolute;
     border-radius: 1rem; /* 16px */
     overflow: hidden;
     /*transition: width 0.5s, color 0.5s;*/
-    transition: max-width 0.5s, background-color 0.5s, border-radius 0.5s, box-shadow 0.5s, filter 0.5s;
+    transition: background-color 0.2s, border-radius 0.2s, box-shadow 0.2s, filter 0.5s;
+    background-color: #1F2937;
     z-index: 99;
     background-color: transparent;
 }
-.main-container-full {
+.vida-webrtc-widget .main-container-expanded {
     width: 150px !important;
     background-color: #1F2937;
     border-radius: 1rem; /* 16px */
-    border-width: 1px;
+    border-width: 0px;
     border-style: solid;
     border-color: #e5e7eb; /* Default border color */
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
                 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15));
 }
-.main-container:hover {
+.vida-webrtc-widget .main-container:hover {
     width: 150px !important;
     background-color: #1F2937;
     border-radius: 1rem; /* 16px */
-    border-width: 1px;
+    border-width: 0px;
     border-style: solid;
     border-color: #e5e7eb; /* Default border color */
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
                 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15));
-}
-
-.margin-left {
-    margin-left: 5px;
 }
 
 @keyframes rotate-shake {
@@ -64,35 +58,221 @@
   }
 }
 
-.loading {
+.vida-webrtc-widget .loading {
   animation: blink 1s infinite;
 }
 
-.avatar-container {
-    overflow:hidden;
-    min-width: 200px;
+.vida-webrtc-widget .welcome-text {
+    width: auto;
 }
 
-.avatar-container img:hover {
-  animation: rotate-shake 0.5s;
+.vida-webrtc-widget .call-buttons {
+    margin-left: 8px;
 }
 
-button {
+.vida-webrtc-widget .avatar-container {
+    overflow: hidden;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.vida-webrtc-widget .avatar-container .avatar-button {
+    background-color: transparent;
+    outline: none !important;
+    box-shadow: none; /* Remove any default box-shadow */
+}
+
+.vida-webrtc-widget .avatar-container .avatar-logo {
+    background-color: transparent;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Slight drop shadow */
+
+}
+
+.vida-webrtc-widget .avatar-container button {
+    border: none;
     outline: none !important;
 }
 
-.w-name {
+.vida-webrtc-widget .avatar-container img:hover {
+  animation: rotate-shake 0.5s;
+  cursor: pointer;
+}
+
+.vida-webrtc-widget .avatar-text {
+    padding-right: 8px;
+}
+
+.vida-webrtc-widget {
+    outline: none !important;
+}
+
+.vida-webrtc-widget .w-name {
     
 }
 
-.bg-primary {
+.vida-webrtc-widget .text-2xs {
+    font-size: 0.5rem;
+    line-height: 0.75rem;
+}
+
+.vida-webrtc-widget .bg-primary {
     background-color: rgb(59 130 246);
 }
 
-.bg-warning {
+.vida-webrtc-widget .bg-warning {
     background-color: rgb(244 63 94);
 }
 
-.bg-gray {
+.vida-webrtc-widget .bg-gray {
     background-color: rgb(107 114 128);
 }
+
+.vida-webrtc-widget .text-white {
+    color: white;
+}
+
+.vida-webrtc-widget .flex {
+    display: flex;
+}
+
+.vida-webrtc-widget .flex-row {
+    flex-direction: row;
+}
+
+.vida-webrtc-widget .gap-1 {
+    gap: .25rem;
+}
+
+.vida-webrtc-widget .gap-4 {
+    gap: 1rem;
+}
+
+.vida-webrtc-widget .p-3 {
+    padding: 0.75rem;
+}
+
+.vida-webrtc-widget .items-center {
+    align-items: center;
+}
+
+.vida-webrtc-widget .text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
+}
+
+.vida-webrtc-widget .font-bold {
+    font-weight: 700;
+}
+
+.vida-webrtc-widget .cursor-pointer {
+    cursor: pointer;
+}
+
+.vida-webrtc-widget .flex-shrink-0 {
+    flex-shrink: 0;
+}
+
+.vida-webrtc-widget .rounded-full {
+    border-radius: 9999px;
+}
+
+.vida-webrtc-widget .w-14 {
+    width: 3.5rem;
+}
+
+.vida-webrtc-widget .flex-col {
+    flex-direction: column;
+}
+
+.vida-webrtc-widget .w-full {
+    width: 100%;
+}
+
+.vida-webrtc-widget .content-center {
+    justify-content: center;
+}
+
+.vida-webrtc-widget .place-content-end {
+    justify-content: flex-end;
+}
+
+.vida-webrtc-widget .gap-2 {
+    gap: 0.5rem;
+}
+
+.vida-webrtc-widget .py-1 {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+.vida-webrtc-widget .py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+.vida-webrtc-widget .px-2 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.vida-webrtc-widget .px-3 {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+.vida-webrtc-widget .hidden {
+    display: none;
+}
+
+.vida-webrtc-widget .text-center {
+    text-align: center;
+}
+
+/* Default button styles for .vida-webrtc-widget */
+.vida-webrtc-widget button {
+    display: inline-block;
+    font-size: .80rem;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.25rem;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    cursor: pointer;
+    outline: none !important;
+}
+
+.vida-webrtc-widget button:hover {
+    filter: brightness(90%);
+    outline: none; /* Ensure no outline on focus */
+}
+
+.vida-webrtc-widget button:active {
+    filter: brightness(80%);
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    outline: none; /* Ensure no outline on focus */
+}
+
+.vida-webrtc-widget button:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+    outline: none; /* Ensure no outline on focus */
+}
+
+.vida-webrtc-widget button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+    opacity: 0.65;
+    outline: none; /* Ensure no outline on focus */
+}
+
+/* Specific button color styles */
+.vida-webrtc-widget .bg-warning {
+    background-color: rgb(244, 63, 94);
+    min-width: 50px;
+}
+
+.vida-webrtc-widget .bg-gray {
+    background-color: rgb(107, 114, 128);
+    min-width: 50px;
+}
+
