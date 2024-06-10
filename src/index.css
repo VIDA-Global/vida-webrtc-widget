@@ -72,6 +72,8 @@
 .vida-webrtc-widget .avatar-container {
     overflow: hidden !important;    
     background-color: transparent !important;
+    margin-left: 5px;
+    margin-right: 2px;
 }
 
 .vida-webrtc-widget .avatar-container .avatar-button {
