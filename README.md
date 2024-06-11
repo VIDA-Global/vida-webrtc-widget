@@ -31,19 +31,16 @@ Here follows an example integration:
   <body style="margin: 25px">
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <!-- 
-      Remove the "d-" from the data tags below to use various options:
       -- data-agent = the vida agent username you want to embed (required)
-      -- data-apiUsername = your optional API username. if not provided we will automatically fetch temp credentials. don't use on public websites or it will leak your credentials!
-      -- data-apiToken = your optional API token. if not provided we will automatically fetch temp credentials. don't use on public websites or it will leak your credentials!
-      -- data-autoRegister = whether the webrtc SIP client should automatically register on page load (if not set it will register when the first call is made)
+      -- data-welcome = text that will be shown when hovering over the widget. Default: "Talk to our AI!"
+      -- data-size = "expanded" if you want the widget pre-expanded without needing hover
     -->
     <div 
       id="webrtc-widget"
-      class="vida-agent-widget"
+      class="vida-webrtc-widget"
       data-agent="vidasales"
-      d-data-apiUsername="yourApiUsername"
-      d-data-apiToken="yourApiToken"
-      d-data-autoRegister="true"
+      data-welcome="Talk to our AI!"
+      data-size="normal"
     ></div>
     <link rel="stylesheet" href="https://vidapublic.s3.us-east-2.amazonaws.com/vida-webrtc-widget/index.css">
     <script src="https://vidapublic.s3.us-east-2.amazonaws.com/vida-webrtc-widget/index.js"></script>
