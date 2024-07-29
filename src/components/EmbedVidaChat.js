@@ -64,7 +64,7 @@ export default function EmbedVidaChat(props) {
       <div className={`main-container flex flex-row gap-4`}>
         {destination && 
         <>
-          <iframe src={`https://vida.io/${destination}?chat=true&chatTarget=${destination}`} className="iframe-embed"/>
+          <iframe src={`https://vida.io/embedChat?chat=true&chatTarget=${destination}&username=${apiUsername}&token=${apiToken}`} className="iframe-embed"/>
         </>
         }
       </div>
