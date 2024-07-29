@@ -21,7 +21,7 @@ const renderWidgets = (elements) => {
         if (!div.getAttribute(DATA_RENDERED_ATTRIBUTE)) { // Check if widget is already rendered
             ReactDOM.render(
               <React.StrictMode>
-                <App agent={div.dataset.agent} welcome={div.dataset.welcome} size={div.dataset.size} />
+                <App agent={div.dataset.agent} welcome={div.dataset.welcome} size={div.dataset.size} mode={div.dataset.mode} />
               </React.StrictMode>,
                 div
             );

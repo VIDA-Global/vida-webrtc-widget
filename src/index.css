@@ -282,3 +282,118 @@
     min-width: 50px !important;
 }
 
+/* Styling for scheduling form */
+.scheduling-form-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.scheduling-form-container h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333333;
+}
+
+.scheduling-form-container label {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #333333;
+}
+
+.scheduling-form-container input[type="text"],
+.scheduling-form-container input[type="tel"],
+.scheduling-form-container input[type="email"],
+.scheduling-form-container select,
+.scheduling-form-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1rem;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.scheduling-form-container button {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.scheduling-form-container button:hover {
+  background-color: #0056b3;
+}
+
+.scheduling-form-container button.secondary {
+  background-color: #6c757d;
+  margin-top: 10px;
+}
+
+.scheduling-form-container button.secondary:hover {
+  background-color: #5a6268;
+}
+
+.scheduling-form-container .date-time {
+  display: flex;
+  justify-content: space-between;
+}
+
+.scheduling-form-container .date-time select {
+  width: 48%;
+}
+
+.scheduling-form-container .comments {
+  margin-top: 1rem;
+}
+
+.scheduling-form-container .comments textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+.date-time-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.calendar-container {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.time-slots-container {
+  flex: 1;
+}
+
+.secondary {
+  margin-left: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+button {
+  margin-top: 10px;
+}
+
+
+/* Styling for chat embed */
+
+.iframe-embed {
+    border: none;
+}
+
