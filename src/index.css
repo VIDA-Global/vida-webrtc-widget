@@ -282,7 +282,7 @@
     min-width: 50px !important;
 }
 
-/* Styling for scheduling form */
+/* Scheduling form container */
 .scheduling-form-container {
   width: 100%;
   max-width: 800px;
@@ -298,6 +298,7 @@
   font-size: 1.5rem;
   margin-bottom: 1rem;
   color: #333333;
+  text-align: center;
 }
 
 .scheduling-form-container label {
@@ -345,15 +346,6 @@
   background-color: #5a6268;
 }
 
-.scheduling-form-container .date-time {
-  display: flex;
-  justify-content: space-between;
-}
-
-.scheduling-form-container .date-time select {
-  width: 48%;
-}
-
 .scheduling-form-container .comments {
   margin-top: 1rem;
 }
@@ -365,6 +357,7 @@
 
 .date-time-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
@@ -377,23 +370,26 @@
   flex: 1;
 }
 
-.secondary {
-  margin-left: 10px;
+.appointment {
+  margin-bottom: 1rem;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
 }
 
-label {
-  display: block;
-  margin-bottom: 10px;
+.appointment p {
+  margin: 0;
 }
 
-button {
-  margin-top: 10px;
+@media (max-width: 768px) {
+  .date-time-container {
+    flex-direction: column;
+  }
+
+  .calendar-container,
+  .time-slots-container {
+    margin-right: 0;
+    width: 100%;
+  }
 }
-
-
-/* Styling for chat embed */
-
-.iframe-embed {
-    border: none;
-}
-

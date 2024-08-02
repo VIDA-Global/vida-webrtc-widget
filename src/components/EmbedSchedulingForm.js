@@ -332,33 +332,38 @@ export default function EmbedSchedulingForm({ agent }) {
       )}
 
       {step === 6 && (
-        <div>
-          <h2>Select Date/Time</h2>
-          <label>
-            Date:
-            <DatePicker
-              selected={formData.appointmentDate ? new Date(formData.appointmentDate) : null}
-              onChange={handleDateChange}
-              dateFormat="yyyy-MM-dd"
-              minDate={new Date()}
-              maxDate={moment().add(6, 'days').toDate()}
-              required
-            />
-          </label>
-          <label>
-            Time:
-            <select name="appointmentTime" onChange={handleAppointmentSelect} required>
-              <option value="">Select a time slot</option>
-              {filteredAvailability.map(slot => (
-                <option key={slot.appointmentDateTimeLocal} value={moment(slot.appointmentDateTimeLocal).format('HH:mm')}>
-                  {moment(slot.appointmentDateTimeLocal).format('h:mm A')}
-                </option>
-              ))}
-            </select>
-          </label>
+        <div className="date-time-container">
+          <div className="calendar-container">
+            <h2>Select Date/Time</h2>
+            <label>
+              Date:
+              <DatePicker
+                selected={formData.appointmentDate ? new Date(formData.appointmentDate) : null}
+                onChange={handleDateChange}
+                dateFormat="yyyy-MM-dd"
+                minDate={new Date()}
+                maxDate={moment().add(6, 'days').toDate()}
+                required
+              />
+            </label>
+          </div>
+          <div className="time-slots-container">
+            <label>
+              Time:
+              <select name="appointmentTime" onChange={handleAppointmentSelect} required>
+                <option value="">Select a time slot</option>
+                {filteredAvailability.map(slot => (
+                  <option key={slot.appointmentDateTimeLocal} value={moment(slot.appointmentDateTimeLocal).format('HH:mm')}>
+                    {moment(slot.appointmentDateTimeLocal).format('h:mm A')}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
           <button type="button" onClick={goBack}>Go Back</button>
         </div>
       )}
+
 
       {step === 7 && (
         <form onSubmit={handleAppointmentSubmit}>
@@ -384,6 +389,7 @@ export default function EmbedSchedulingForm({ agent }) {
           <button type="submit">Book Appointment</button>
           <button type="button" className="secondary" onClick={goBack}>Go Back</button>
         </form>
+
       )}
 
       {step === 8 && customer.appointments && (
@@ -402,6 +408,7 @@ export default function EmbedSchedulingForm({ agent }) {
           <button type="button" className="secondary" onClick={() => setStep(3)}>Book New Appointment</button>
         </div>
       )}
+
     </div>
   );
 }
