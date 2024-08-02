@@ -5,14 +5,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import moment from 'moment';
 
-const API_TOKEN = '39d76f8807a14afeb9497befb66b5721';
 
-const api = axios.create({
-  baseURL: 'https://api.vida.dev',
-  params: {
-    token: API_TOKEN,
-  }
-});
 
 export default function EmbedSchedulingForm({ agent }) {
   const [formData, setFormData] = useState({
@@ -34,6 +27,12 @@ export default function EmbedSchedulingForm({ agent }) {
   const [filteredAvailability, setFilteredAvailability] = useState([]);
   const [step, setStep] = useState(1);
   const [allowPhoneEntry, setAllowPhoneEntry] = useState(false);
+  const api = axios.create({
+    baseURL: 'https://api.vida.dev',
+    params: {
+      targetUser: agent,
+    }
+  });
 
   useEffect(() => {
     const savedPhoneNumber = Cookies.get('phoneNumber');
@@ -68,6 +67,7 @@ export default function EmbedSchedulingForm({ agent }) {
   const lookupCustomer = async (phoneNumber) => {
     try {
       const response = await api.post('/api/coxauto/customer', { phoneNumber });
+      console.log(response)
       if (response.data.success && response.data.customer && response.data.customer.length > 0) {
         const customerData = response.data.customer[0];
         setCustomer(customerData);
