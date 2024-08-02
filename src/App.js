@@ -4,20 +4,12 @@ import EmbedVidaChat from "./components/EmbedVidaChat";
 import EmbedSchedulingForm from "./components/EmbedSchedulingForm";
 
 function App(props) {
+  switch (props.mode) {
+    case 'scheduling': return <EmbedSchedulingForm agent={props.agent} />;
+    case 'chat': return <EmbedVidaChat agent={props.agent} />;
 
-  return (
-    <div>
-      {props.mode === 'scheduling' ? (
-        <EmbedSchedulingForm agent={props.agent} />
-      ) : (
-        props.mode === 'chat' ? (
-          <EmbedVidaChat agent={props.agent} />
-        ) : (
-          <EmbedVidaAgent agent={props.agent} welcome={props.welcome} size={props.size} />
-        )
-      )}
-    </div>
-  );
+    default: return <EmbedVidaAgent agent={props.agent} welcome={props.welcome} size={props.size} />
+  }
 }
 
 export default App;

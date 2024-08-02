@@ -1,12 +1,7 @@
 import 'regenerator-runtime/runtime';
-import React from "react";
 import { useState, useEffect } from "react";
 
 export default function EmbedVidaChat(props) {
-  const [status, setStatus] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const [destination, setDestination] = useState(props.agent);
-  const [targetAccount, setTargetAccount] = useState(null);  
   const [apiUsername, setApiUsername] = useState(null);
   const [apiToken, setApiToken] = useState(null);
 
@@ -29,45 +24,23 @@ export default function EmbedVidaChat(props) {
       });
   }
 
-  const handleFetchAccount = async () => {
-    return fetch(`https://api.vida.dev/api/v1/account/${destination}`)
-      .then((res) => {
-        if (!res.ok) {
-          console.log("Error fetching account!");
-        }
-        return res.json();
-      })
-      .then((data) => {
-        setTargetAccount(data);
-        setLoading(false);
-        return data;
-      })
-      .catch(function () {
-        console.log("Error fetching temp user session");
-        setLoading(false);
-        return false;
-      });
-  };
-
-  
   useEffect(() => {
-    if((!apiUsername || !apiToken)) {
+    if ((!apiUsername || !apiToken)) {
       handleFetchTempUser();
     }
-    //if(!targetAccount) {
-    //  handleFetchAccount();
-    //}    
-  }, [apiUsername, apiToken, targetAccount]);
+  }, []);
+
+  if (!apiUsername || !apiToken || !props.agent) {
+    return "Loading...";
+  }
 
   return (
-    <> 
-      <div className={`main-container flex flex-row gap-4`}>
-        {destination && 
-        <>
-          <iframe src={`https://vida.io/embedChat?chat=true&chatTarget=${destination}&username=${apiUsername}&token=${apiToken}`} className="iframe-embed"/>
-        </>
-        }
-      </div>
-    </>
+    <div>
+      <iframe
+        src={`http://localhost:3000/embedChat?chatTarget=${props.agent}&token=${apiToken}&username=${apiUsername}`}
+        height={640}
+        width={480}
+      />
+    </div>
   );
 }
