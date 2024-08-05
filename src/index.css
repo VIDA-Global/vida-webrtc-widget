@@ -393,3 +393,9 @@
     width: 100%;
   }
 }
+
+/* Styling for chat embed */
+
+.iframe-embed {
+    border: none;
+}
