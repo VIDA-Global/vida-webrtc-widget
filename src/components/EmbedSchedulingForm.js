@@ -84,7 +84,7 @@ export default function EmbedSchedulingForm({ agent }) {
         }));
         setVehicles(customerData.vehicles);
         setStep(customerData.appointments.length > 0 ? 8 : 3); // Step 8 to show appointments if there are any
-        // setStep(8); // Step 8 to show appointments if there are any
+        // setStep(6);  // Step 8 to show appointments if there are any
       } else {
         setStep(2);
       }
@@ -421,7 +421,7 @@ export default function EmbedSchedulingForm({ agent }) {
             <h2 className="theme-clr h33 flxbtn nomb">Select Service</h2>
           </div>{" "}
           <hr className="hr" />
-          <label>
+          {/* <label>
             <select
               className="inp-ctrl"
               name="serviceType"
@@ -435,10 +435,83 @@ export default function EmbedSchedulingForm({ agent }) {
                 </option>
               ))}
             </select>
-          </label>
-          <button type="submit" className=" sub-btn theme-btn">
+          </label> */}
+          <div
+            className="Appointment
+         "
+          >
+            <div className="ml-0 mr-0 justify-content-md-center rowm">
+              <div
+                id="QUICK SERVICE"
+                className=" pointer blink-border service-type bg-white col-5 col-md-2 col-lg-2 col-xl-2 color-primary m-2 box-style p-2 rounded-box box-border col"
+              >
+                <div
+                  id="QUICK SERVICE"
+                  className="pl-1 pt-3 pb-0 pr-3 text-center"
+                >
+                  <img
+                    id="QUICK SERVICE"
+                    height={100}
+                    width={100}
+                    src="//cdn.blinkai.com/service_types/oil_change.svg"
+                    className="mb-5 img-60"
+                  />
+                  <div className="text-muted" style={{ lineHeight: "1rem" }}>
+                    <h6 id="QUICK SERVICE" className="text-center text-dark">
+                      Oil Change / Quick Service
+                    </h6>
+                    <div style={{ minHeight: 35 }}>&nbsp;</div>
+                  </div>
+                </div>
+              </div>
+              <div
+                id="RECALL"
+                className=" pointer blink-border service-type bg-white col-5 col-md-2 col-lg-2 col-xl-2 color-primary m-2 box-style p-2 rounded-box box-border col"
+              >
+                <div id="RECALL" className="pl-1 pt-3 pb-0 pr-3 text-center">
+                  <img
+                    id="RECALL"
+                    height={100}
+                    width={100}
+                    src="//cdn.blinkai.com/service_types/check_engine.svg"
+                    className="mb-5 img-60"
+                  />
+                  <div className="text-muted" style={{ lineHeight: "1rem" }}>
+                    <h6 id="RECALL" className="text-center text-dark">
+                      Recalls
+                    </h6>
+                    <div style={{ minHeight: 35 }}>&nbsp;</div>
+                  </div>
+                </div>
+              </div>
+              <div
+                id="OTHER SERVICE"
+                className=" pointer blink-border service-type bg-white col-5 col-md-2 col-lg-2 col-xl-2 color-primary m-2 box-style p-2 rounded-box box-border col"
+              >
+                <div
+                  id="OTHER SERVICE"
+                  className="pl-1 pt-3 pb-0 pr-3 text-center"
+                >
+                  <img
+                    id="OTHER SERVICE"
+                    height={100}
+                    width={100}
+                    src="//cdn.blinkai.com/service_types/other.svg"
+                    className="mb-5 img-60"
+                  />
+                  <div className="text-muted" style={{ lineHeight: "1rem" }}>
+                    <h6 id="OTHER SERVICE" className="text-center text-dark">
+                      Repairs / Other Concerns
+                    </h6>
+                    <div style={{ minHeight: 35 }}>&nbsp;</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* <button type="submit" className=" sub-btn theme-btn">
             Continue
-          </button>
+          </button> */}
         </form>
       )}
 
@@ -466,7 +539,7 @@ export default function EmbedSchedulingForm({ agent }) {
             <h2 className="theme-clr h33 flxbtn nomb">Choose Transport Type</h2>
           </div>{" "}
           <hr className="hr" />
-          <label>
+          {/* <label>
             <select
               name="transportType"
               onChange={handleTransportSelect}
@@ -477,10 +550,37 @@ export default function EmbedSchedulingForm({ agent }) {
               <option value="DROPOFF">Drop off</option>
               <option value="WAITER">Wait at dealership</option>
             </select>
-          </label>
-          <button type="submit" className=" sub-btn theme-btn">
+          </label> */}
+          <div className="Appointment">
+            <div className="ml-0 mr-0 justify-content-md-center text-left row">
+              <div className=" pointer blink-border transportation-type bg-white col-md-10 col-lg-10 col-xl-10 color-primary m-2 box-style p-2 rounded-box box-border col">
+                <div id="WAITER" className="pl-1 pt-3 pb-0 pr-3">
+                  <h5 className="text-dark fw-bold description">
+                    WAIT AT DEALERSHIP
+                  </h5>
+                  <hr className="mt-0 mb-0 hra" />
+                  <span className="text-muted text-smallish comment">
+                    Our Waiting Area has WiFi Internet
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="ml-0 mr-0 justify-content-md-center text-left row">
+              <div className=" pointer blink-border transportation-type bg-white col-md-10 col-lg-10 col-xl-10 color-primary m-2 box-style p-2 rounded-box box-border col">
+                <div id="DROPOFF" className="pl-1 pt-3 pb-0 pr-3">
+                  <h5 className="text-dark fw-bold description">DROP OFF</h5>
+                  <hr className="mt-0 mb-0 hra  " />
+                  <span className="text-muted text-smallish comment">
+                    Transportation is not required during the service
+                    appointment.
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* <button type="submit" className=" sub-btn theme-btn">
             Continue
-          </button>
+          </button> */}
         </form>
       )}
 
@@ -538,7 +638,72 @@ export default function EmbedSchedulingForm({ agent }) {
                 />
               </label>
               <div className="time-slots-container">
-                <label>
+                <div className="react-datepicker__time-container ">
+                  <div className="react-datepicker__header react-datepicker__header--time ">
+                    <div className="react-datepicker-time__header">Time</div>
+                  </div>
+                  <div className="react-datepicker__time">
+                    <div className="react-datepicker__time-box">
+                      <ul
+                        className="react-datepicker__time-list"
+                        role="listbox"
+                        aria-label="Time"
+                        style={{ height: 206 }}
+                      >
+                        <li
+                          className="react-datepicker__time-list-item  react-datepicker__time-list-item--selected"
+                          tabIndex={-1}
+                          role="option"
+                          aria-disabled="true"
+                        >
+                          11:05 PM
+                        </li>
+                        <li
+                          className="react-datepicker__time-list-item "
+                          tabIndex={-1}
+                          role="option"
+                          aria-disabled="true"
+                        >
+                          11:10 PM
+                        </li>
+                        <li
+                          className="react-datepicker__time-list-item "
+                          tabIndex={-1}
+                          role="option"
+                          aria-disabled="true"
+                        >
+                          11:15 PM
+                        </li>
+                        <li
+                          className="react-datepicker__time-list-item "
+                          tabIndex={-1}
+                          role="option"
+                          aria-disabled="true"
+                        >
+                          11:20 PM
+                        </li>
+                        <li
+                          className="react-datepicker__time-list-item "
+                          tabIndex={-1}
+                          role="option"
+                          aria-disabled="true"
+                        >
+                          11:25 PM
+                        </li>
+                        <li
+                          className="react-datepicker__time-list-item "
+                          tabIndex={-1}
+                          role="option"
+                          aria-disabled="true"
+                        >
+                          11:30 PM
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                {/* <label>
                   <h2 className="per">Time</h2>
                   <select
                     name="appointmentTime"
@@ -558,7 +723,7 @@ export default function EmbedSchedulingForm({ agent }) {
                       </option>
                     ))}
                   </select>
-                </label>
+                </label> */}
               </div>
             </div>
           </div>
