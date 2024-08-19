@@ -20,9 +20,7 @@ const renderWidgets = (elements) => {
     elements.forEach(div => {
         if (!div.getAttribute(DATA_RENDERED_ATTRIBUTE)) { // Check if widget is already rendered
             ReactDOM.render(
-              <React.StrictMode>
-                <App agent={div.dataset.agent} welcome={div.dataset.welcome} size={div.dataset.size} mode={div.dataset.mode} />
-              </React.StrictMode>,
+                <App agent={div.dataset.agent} welcome={div.dataset.welcome} size={div.dataset.size} mode={div.dataset.mode} />,
                 div
             );
             div.setAttribute(DATA_RENDERED_ATTRIBUTE, 'true'); // Mark this widget as rendered
@@ -56,4 +54,4 @@ const observer = new MutationObserver((mutations) => {
 });
 
 // Configure the observer to watch for additions to the DOM
-observer.observe(document.body, { childList: true, subtree: true });
+//observer.observe(document.body, { childList: true, subtree: true });
