@@ -28,7 +28,7 @@ export default function EmbedVidaChat(props) {
     if ((!apiUsername || !apiToken)) {
       handleFetchTempUser();
     }
-  }, []);
+  }, [apiUsername, apiToken]);
 
   if (!apiUsername || !apiToken || !props.agent) {
     return "Loading...";
@@ -38,7 +38,7 @@ export default function EmbedVidaChat(props) {
     <div>
       <iframe
         title='embed-vida-chat'
-        src={`https://vida.io/embedChat?chatTarget=${props.agent}&token=${apiToken}&username=${apiUsername}`}
+        src={`http://localhost:3000/embedChat?chatTarget=${props.agent}&token=${apiToken}&username=${apiUsername}&embedChat=true`}
         height={640}
         width={480}
       />
