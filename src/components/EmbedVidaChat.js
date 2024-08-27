@@ -38,7 +38,7 @@ export default function EmbedVidaChat(props) {
     <div>
       <iframe
         title='embed-vida-chat'
-        src={`http://localhost:3000/embedChat?chatTarget=${props.agent}&token=${apiToken}&username=${apiUsername}&embedChat=true`}
+        src={`http://localhost:3000/embedChat?chatTarget=${props.agent}&token=${apiToken}&embedChatUsername=${apiUsername}&embedChat=true`}
         height={640}
         width={480}
       />
