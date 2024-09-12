@@ -425,22 +425,22 @@
   height: 100px;
 }
 
-.date-time-container {
+.scheduling-form-container .date-time-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;  
 }
 
-.calendar-container {
+.scheduling-form-container .calendar-container {
   flex: 1;
   margin-right: 20px;
 }
 
-.time-slots-container {
+.scheduling-form-container .time-slots-container {
   flex: 1;  
 }
 
-.appointment {
+.scheduling-form-container .appointment {
   margin-bottom: 1rem;
   padding: 10px;
   border: 1px solid #cccccc;
@@ -448,64 +448,64 @@
   background-color: #f9f9f9;
 }
 
-.appointment.notice {
+.scheduling-form-container .appointment.notice {
   border: 2px solid #fecc6a !important;
 }
 
-.Appointment .date-footer {
+.scheduling-form-container .Appointment .date-footer {
   text-align: center;
   font-size: 24px;
   margin-bottom: 10px;
   margin-top: 10px;
 }
 
-.appointment p {
+.scheduling-form-container .appointment p {
   margin: 0;
 }
 
 @media (max-width: 768px) {
-  .date-time-container {
+  .scheduling-form-container .date-time-container {
     flex-direction: column;
   }
 
-  .calendar-container,
-  .time-slots-container {
+  .scheduling-form-container .calendar-container,
+  .scheduling-form-container .time-slots-container {
     margin-right: 0;
     width: 100%;
   }
 }
 /*  */
 
-.theme-clr {
+.scheduling-form-container .theme-clr {
   color: #337ab7 !important;
   font-family: "Poppins", sans-serif;
 }
-.h33 {
+.scheduling-form-container .h33 {
   text-align: left !important;
   font-size: calc(1.3rem + 0.6vw) !important;
   font-weight: 500;
   margin-bottom: 0.5rem !important;
   margin-top: 0 !important;
 }
-.h55 {
+.scheduling-form-container .h55 {
   margin-bottom: 0.5rem !important;
   text-align: left !important;
   font-weight: 300;
   margin-top: 0 !important;
   font-size: 1.25rem !important;
 }
-.hr {
+.scheduling-form-container .hr {
   border: 0;
   border-top: 1px solid;
   color: inherit;
   margin: 1rem 0;
   opacity: 0.25;
 }
-.inp-ctrl:focus,
-.inp-ctrl:active {
+.scheduling-form-container .inp-ctrl:focus,
+.scheduling-form-container .inp-ctrl:active {
   color: #000 !important;
 }
-.inp-ctrl {
+.scheduling-form-container .inp-ctrl {
   background-color: #fff !important;
   border-left: 10px solid #216ba5 !important;
   border-radius: 0 !important;
@@ -518,61 +518,59 @@
 
   line-height: 70px;
 }
-.theme-btn {
+.scheduling-form-container .theme-btn {
   background-color: #337ab7 !important;
   padding: 15px !important;
   font-size: 20px !important;
 }
 
-.flexbtn {
+.scheduling-form-container .flexbtn {
   display: flex;
   align-items: center;
   gap: 40px;
 }
-.flexbtna {
+.scheduling-form-container .flexbtna {
   display: flex;
   align-items: center;
   box-sizing: border-box;
   gap: 1rem;
 }
-.flexbtna label input {
+.scheduling-form-container .flexbtna label input {
   width: 100%;
   box-sizing: border-box;
 }
-.flexbtna label {
+.scheduling-form-container .flexbtna label {
   width: 50%;
   box-sizing: border-box;
 }
-.flexbtn svg {
+.scheduling-form-container .flexbtn svg {
   fill: #216ba5;
   scale: 2.5;
 }
-.btn-link {
+.scheduling-form-container .btn-link {
   cursor: pointer;
 }
-.nomb {
+.scheduling-form-container .nomb {
   margin-bottom: 0 !important   ;
   line-height: 0 !important;
 }
-.flex-te {
+.scheduling-form-container .flex-te {
   display: flex;
   justify-content: center;
 }
-/* .lbl1 {
-  width: 350px;
-} */
-.time-slots-container {
+
+.scheduling-form-container .time-slots-container {
   flex: 0 0;
   /* width: 50px; */
 }
-.time-slots-container label {
+.scheduling-form-container .time-slots-container label {
   width: max-content;
 }
-.react-datepicker,
-.react-datepicker__month-container {
+.scheduling-form-container .react-datepicker,
+.scheduling-form-container .react-datepicker__month-container {
   width: 100%;
 }
-.react-datepicker {
+.scheduling-form-container .react-datepicker {
   border-left: none !important;
   border-top: none !important;
   border-bottom: none !important;
@@ -580,28 +578,28 @@
   height: 476px;
   overflow: hidden;
 }
-.react-datepicker__navigation {
+.scheduling-form-container .react-datepicker__navigation {
   width: auto !important;
   color: #FFF !important;
   background-color: #FFF !important;
 }
-.react-datepicker__header:not(.react-datepicker__header--has-time-select) {
+.scheduling-form-container .react-datepicker__header:not(.react-datepicker__header--has-time-select) {
   background-color: white !important;
 }
 
-.per {
+.scheduling-form-container .per {
   text-align: center;
   font-size: 0.944rem !important;
   font-weight: 700;
 }
-.react-datepicker__day--keyboard-selected,
-.react-datepicker__month-text--keyboard-selected,
-.react-datepicker__quarter-text--keyboard-selected,
-.react-datepicker__year-text--keyboard-selected {
+.scheduling-form-container .react-datepicker__day--keyboard-selected,
+.scheduling-form-container .react-datepicker__month-text--keyboard-selected,
+.scheduling-form-container .react-datepicker__quarter-text--keyboard-selected,
+.scheduling-form-container .react-datepicker__year-text--keyboard-selected {
   background-color: #337ab7 !important;
   color: white !important;
 }
-.apttm.apttm {
+.scheduling-form-container .apttm.apttm {
   height: 50px !important;
   width: 181px !important;
   font-size: 1rem !important;
@@ -623,21 +621,21 @@
   font-size: 1rem;
   height: 80px !important;
 }
-.cmt-er {
+.scheduling-form-container .cmt-er {
   color: #216ba5 !important;
 }
 /* 
  */
-.rowm {
+.scheduling-form-container .rowm {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-.Appointment .blink-border {
+.scheduling-form-container .Appointment .blink-border {
   border-left: 10px solid #4e585c !important;
 }
 
-.date-time-container .notice {
+.scheduling-form-container .date-time-container .notice {
   margin: 20px;
   padding: 20px;
   font-weight: bold;
@@ -645,163 +643,163 @@
   text-align: center;
 }
 
-.Appointment .service-type:hover {
+.scheduling-form-container .Appointment .service-type:hover {
   background-color: #f9fafd !important;
   border-left: 10px solid #216ba5 !important;
 }
-.Appointment .service-type {
+.scheduling-form-container .Appointment .service-type {
   min-height: 225px;
   min-width: 157px;
   position: relative;
 }
-.Appointment .bg-white {
+.scheduling-form-container .Appointment .bg-white {
   background-color: #fff !important;
 }
-.Appointment .rounded-box {
+.scheduling-form-container .Appointment .rounded-box {
   border-radius: 10px;
 }
-.Appointment .box-border {
+.scheduling-form-container .Appointment .box-border {
   border: 1px solid #ccc;
 }
-.Appointment .pointer {
+.scheduling-form-container .Appointment .pointer {
   cursor: pointer;
 }
-.text-center {
+.scheduling-form-container .text-center {
   text-align: center !important;
 }
 
-.pb-0 {
+.scheduling-form-container .pb-0 {
   padding-bottom: 0 !important;
 }
-.pt-3 {
+.scheduling-form-container .pt-3 {
   padding-top: 1rem !important;
 }
 
-.text-center {
+.scheduling-form-container .text-center {
   text-align: center !important;
 }
 
-.pb-0 {
+.scheduling-form-container .pb-0 {
   padding-bottom: 0 !important;
 }
-.pt-3 {
+.scheduling-form-container .pt-3 {
   padding-top: 1rem !important;
 }
-.h6,
-h6 {
+.scheduling-form-container .h6,
+.scheduling-form-container h6 {
   font-size: 1rem;
 }
-.p-2 {
+.scheduling-form-container .p-2 {
   padding: 0.5rem !important;
 }
 
-.m-2 {
+.scheduling-form-container .m-2 {
   margin: 0.5rem !important;
 }
-.col-5 {
+.scheduling-form-container .col-5 {
   flex: 0 0 auto;
   width: 41.66666667%;
 }
 /*  */
-.Appointment {
+.scheduling-form-container .Appointment {
   max-height: 816px;
 }
-.Appointment .mr-0 {
+.scheduling-form-container .Appointment .mr-0 {
   margin-right: 0 !important;
 }
 
-.Appointment .wait-drop {
+.scheduling-form-container .Appointment .wait-drop {
   margin-bottom: 20px;
 }
 
-.Appointment .ml-0 {
+.scheduling-form-container .Appointment .ml-0 {
   margin-left: 0 !important;
 }
 
-.Appointment .blink-border {
+.scheduling-form-container .Appointment .blink-border {
   border-left: 10px solid #4e585c !important;
 }
 
-.Appointment .bg-white {
+.scheduling-form-container .Appointment .bg-white {
   background-color: #fff !important;
 }
-.Appointment .rounded-box {
+.scheduling-form-container .Appointment .rounded-box {
   border-radius: 10px;
 }
-.Appointment .box-border {
+.scheduling-form-container .Appointment .box-border {
   border: 1px solid #ccc;
 }
-.Appointment .pointer {
+.scheduling-form-container .Appointment .pointer {
   cursor: pointer;
 }
-.h5,
-h5 {
+.scheduling-form-container .h5,
+.scheduling-form-container h5 {
   font-size: 1.25rem;
   margin: 0;
   margin-bottom: 0.5rem !important;
 }
-.fw-bold {
+.scheduling-form-container .fw-bold {
   font-weight: 700 !important;
 }
-.text-dark {
+.scheduling-form-container .text-dark {
   --bs-text-opacity: 1;
   color: rgba(33, 37, 41, var(--bs-text-opacity)) !important;
   color: rgba(33, 37, 41, var(--bs-text-opacity)) !important;
 }
-.hra {
+.scheduling-form-container .hra {
   border: 0;
   border-top: 1px solid;
   color: inherit;
   margin: 0rem 0;
   opacity: 0.25;
 }
-.Appointment .text-smallish {
+.scheduling-form-container .Appointment .text-smallish {
   font-size: 80%;
 }
 
-.text-muted {
+.scheduling-form-container .text-muted {
   --bs-text-opacity: 1;
   color: #6c757d !important;
 }
 
-.Appointment .service-type:hover {
+.scheduling-form-container .Appointment .service-type:hover {
   background-color: #f9fafd !important;
   border-left: 10px solid #216ba5 !important;
 }
 
-.Appointment .transportation-type:hover,
-.Appointment .vehicle:hover {
+.scheduling-form-container .Appointment .transportation-type:hover,
+.scheduling-form-container .Appointment .vehicle:hover {
   background-color: #f9fafd !important;
   border-left: 10px solid #216ba5 !important;
 }
 /* 
  */
-.react-datepicker__time-container {
+.scheduling-form-container .react-datepicker__time-container {
   border-left: 1px solid #aeaeae;
   float: right;
   width: 110px !important;
   height: 476px !important;
   overflow: scroll;
 }
-.Appointment .react-datepicker__header {
+.scheduling-form-container .Appointment .react-datepicker__header {
   background-color: #0000;
 }
 
-.Appointment .react-datepicker__header--time {
+.scheduling-form-container .Appointment .react-datepicker__header--time {
   padding: 5px;
 }
-.react-datepicker__header:not(.react-datepicker__header--has-time-select) {
+.scheduling-form-container .react-datepicker__header:not(.react-datepicker__header--has-time-select) {
   border-top-right-radius: 0.3rem;
 }
-.react-datepicker__header--time:not(.react-datepicker__header--time--only) {
+.scheduling-form-container .react-datepicker__header--time:not(.react-datepicker__header--time--only) {
   border-top-left-radius: 0;
 }
-.react-datepicker__header--time {
+.scheduling-form-container .react-datepicker__header--time {
   padding-bottom: 8px;
   padding-left: 5px;
   padding-right: 5px;
 }
-.react-datepicker__header {
+.scheduling-form-container .react-datepicker__header {
   background-color: #f0f0f0;
   border-bottom: 1px solid #aeaeae;
   border-top-left-radius: 0.3rem;
@@ -809,37 +807,37 @@ h5 {
   position: relative;
   text-align: center;
 }
-.Appointment .react-datepicker-time__header,
-.Appointment .react-datepicker-year-header,
-.Appointment .react-datepicker__current-month {
+.scheduling-form-container .Appointment .react-datepicker-time__header,
+.scheduling-form-container .Appointment .react-datepicker-year-header,
+.scheduling-form-container .Appointment .react-datepicker__current-month {
   font-size: 0.944rem;
 }
 
-.react-datepicker-time__header {
+.scheduling-form-container .react-datepicker-time__header {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   padding-top: 35px;
   padding-bottom: 35px;
 }
-.react-datepicker-time__header,
-.react-datepicker-year-header,
-.react-datepicker__current-month {
+.scheduling-form-container .react-datepicker-time__header,
+.scheduling-form-container .react-datepicker-year-header,
+.scheduling-form-container .react-datepicker__current-month {
   color: #000;
   font-size: 0.944rem;
   font-weight: 700;
   margin-top: 0;
 }
-.Appointment .react-datepicker__time-container .react-datepicker__time {
+.scheduling-form-container .Appointment .react-datepicker__time-container .react-datepicker__time {
   background: #0000;
 }
 
-.react-datepicker__time-container .react-datepicker__time {
+.scheduling-form-container .react-datepicker__time-container .react-datepicker__time {
   background: #fff;
   border-bottom-right-radius: 0.3rem;
   position: relative;
 }
-.react-datepicker__time-container
+.scheduling-form-container .react-datepicker__time-container
   .react-datepicker__time
   .react-datepicker__time-box {
   border-bottom-right-radius: 0.3rem;
@@ -848,7 +846,7 @@ h5 {
   text-align: center;
   width: 109px !important;
 }
-.react-datepicker__time-container
+.scheduling-form-container .react-datepicker__time-container
   .react-datepicker__time
   .react-datepicker__time-box
   ul.react-datepicker__time-list {
@@ -863,31 +861,31 @@ h5 {
 }
 
 @media (min-width: 768px) {
-  .col-md-2 {
+  .scheduling-form-container .col-md-2 {
     flex: 0 0 auto;
     width: 16.66666667%;
   }
 }
 
 @media (min-width: 992px) {
-  .col-lg-2 {
+  .scheduling-form-container .col-lg-2 {
     flex: 0 0 auto;
     width: 16.66666667%;
   }
 }
 
 @media (max-width: 768px) {
-  .Appointment .react-datepicker__day-name {
+  .scheduling-form-container .Appointment .react-datepicker__day-name {
     padding: 0px 0px !important;
   }
-  .Appointment .react-datepicker__day {
+  .scheduling-form-container .Appointment .react-datepicker__day {
     padding: 0px 0px !important;
   }
-  .react-datepicker-time__header {
+  .scheduling-form-container .react-datepicker-time__header {
     padding-top: 15px !important;
     padding-bottom: 15px !important;
   }
-  .Appointment
+  .scheduling-form-container .Appointment
     .react-datepicker__time-container
     .react-datepicker__time
     .react-datepicker__time-box
@@ -897,54 +895,54 @@ h5 {
     padding: 5px !important;
     white-space: nowrap;
   }
-  .scheduling-form-body {
+  .scheduling-form-container .scheduling-form-body {
     padding: 0px;
     min-height: 400px;
   }
-  .react-datepicker {
+  .scheduling-form-container .react-datepicker {
     height: 280px !important;
   }
-  .react-datepicker__time-container {
+  .scheduling-form-container .react-datepicker__time-container {
     height: 280px !important;
   }
-  .col-5 {
+  .scheduling-form-container .col-5 {
     width: 80% !important;
   }
-  .Appointment .service-type {
+  .scheduling-form-container .Appointment .service-type {
     min-height: 100px;
   }
-  .service-type h6 {
+  .scheduling-form-container .service-type h6 {
     margin-block-start: .33em !important;
     margin-block-end: .33em !important;
   }
 
-  .service-type-container {
+  .scheduling-form-container .service-type-container {
     padding-top: 0 !important;
   }
 
   .scheduling-form-container .comments textarea.cmt {
     min-width: 200px !important;
   }
-  .date-time-container .notice {
+  .scheduling-form-container .date-time-container .notice {
     margin: 10px;
     padding: 10px;
   }
 }
 
 @media (min-width: 769px) and (max-width: 992px) {
-  .Appointment .react-datepicker__day-name {
+  .scheduling-form-container .Appointment .react-datepicker__day-name {
     padding: 10px 20px !important;
   }
-  .Appointment .react-datepicker__day {
+  .scheduling-form-container .Appointment .react-datepicker__day {
     padding: 10px 20px !important;
   }
-  .react-datepicker-time__header {
+  .scheduling-form-container .react-datepicker-time__header {
     padding-top: 25px !important;
     padding-bottom: 25px !important;
   }
 }
 
-.Appointment
+.scheduling-form-container .Appointment
   .react-datepicker__time-container
   .react-datepicker__time
   .react-datepicker__time-box
@@ -955,49 +953,49 @@ h5 {
   white-space: nowrap;
 }
 
-.react-datepicker__time-list {
+.scheduling-form-container .react-datepicker__time-list {
   position: relative;
   height: 100%;
 }
 
-.Appointment .react-datepicker__day-name {
+.scheduling-form-container .Appointment .react-datepicker__day-name {
   padding: 20px 30px;
 }
-.react-datepicker__day-name,
-.react-datepicker__day,
-.react-datepicker__time-name {
+.scheduling-form-container .react-datepicker__day-name,
+.scheduling-form-container .react-datepicker__day,
+.scheduling-form-container .react-datepicker__time-name {
   width: 2rem !important;
 }
 
-.Appointment .react-datepicker__day {
+.scheduling-form-container .Appointment .react-datepicker__day {
   padding: 20px 30px;
 }
 
-.Appointment .react-datepicker__day--in-range,
-.Appointment .react-datepicker__day--in-range:hover,
-.Appointment .react-datepicker__day--in-selecting-range,
-.Appointment .react-datepicker__day--in-selecting-range:hover,
-.Appointment .react-datepicker__day--selected,
-.Appointment .react-datepicker__day--selected:hover,
-.Appointment .react-datepicker__month-text--in-range,
-.Appointment .react-datepicker__month-text--in-range:hover,
-.Appointment .react-datepicker__month-text--in-selecting-range,
-.Appointment .react-datepicker__month-text--in-selecting-range:hover,
-.Appointment .react-datepicker__month-text--selected,
-.Appointment .react-datepicker__month-text--selected:hover,
-.Appointment .react-datepicker__quarter-text--in-range,
-.Appointment .react-datepicker__quarter-text--in-range:hover,
-.Appointment .react-datepicker__quarter-text--in-selecting-range,
-.Appointment .react-datepicker__quarter-text--in-selecting-range:hover,
-.Appointment .react-datepicker__quarter-text--selected,
-.Appointment .react-datepicker__quarter-text--selected:hover,
-.Appointment
+.scheduling-form-container .Appointment .react-datepicker__day--in-range,
+.scheduling-form-container .Appointment .react-datepicker__day--in-range:hover,
+.scheduling-form-container .Appointment .react-datepicker__day--in-selecting-range,
+.scheduling-form-container .Appointment .react-datepicker__day--in-selecting-range:hover,
+.scheduling-form-container .Appointment .react-datepicker__day--selected,
+.scheduling-form-container .Appointment .react-datepicker__day--selected:hover,
+.scheduling-form-container .Appointment .react-datepicker__month-text--in-range,
+.scheduling-form-container .Appointment .react-datepicker__month-text--in-range:hover,
+.scheduling-form-container .Appointment .react-datepicker__month-text--in-selecting-range,
+.scheduling-form-container .Appointment .react-datepicker__month-text--in-selecting-range:hover,
+.scheduling-form-container .Appointment .react-datepicker__month-text--selected,
+.scheduling-form-container .Appointment .react-datepicker__month-text--selected:hover,
+.scheduling-form-container .Appointment .react-datepicker__quarter-text--in-range,
+.scheduling-form-container .Appointment .react-datepicker__quarter-text--in-range:hover,
+.scheduling-form-container .Appointment .react-datepicker__quarter-text--in-selecting-range,
+.scheduling-form-container .Appointment .react-datepicker__quarter-text--in-selecting-range:hover,
+.scheduling-form-container .Appointment .react-datepicker__quarter-text--selected,
+.scheduling-form-container .Appointment .react-datepicker__quarter-text--selected:hover,
+.scheduling-form-container .Appointment
   .react-datepicker__time-container
   .react-datepicker__time
   .react-datepicker__time-box
   ul.react-datepicker__time-list
   li.react-datepicker__time-list-item--selected,
-.Appointment
+.scheduling-form-container .Appointment
   .react-datepicker__time-container
   .react-datepicker__time
   .react-datepicker__time-box
@@ -1005,7 +1003,7 @@ h5 {
   li.react-datepicker__time-list-item--selected:hover {
   background-color: #216ba5;
 }
-.react-datepicker__time-container
+.scheduling-form-container .react-datepicker__time-container
   .react-datepicker__time
   .react-datepicker__time-box
   ul.react-datepicker__time-list
@@ -1014,7 +1012,7 @@ h5 {
   color: #fff;
   font-weight: 700;
 }
-.react-datepicker__time-container
+.scheduling-form-container .react-datepicker__time-container
   .react-datepicker__time
   .react-datepicker__time-box
   ul.react-datepicker__time-list
@@ -1024,7 +1022,7 @@ h5 {
   white-space: nowrap;
 }
 
-.dropdown {
+.scheduling-form-container .dropdown {
   margin-top: -10px;
   position: absolute;
   background-color: white;
@@ -1037,16 +1035,16 @@ h5 {
   border-radius: 0 !important;
 }
 
-.dropdown-item {
+.scheduling-form-container .dropdown-item {
   padding: 10px;
   cursor: pointer;
 }
 
-.dropdown-item:hover {
+.scheduling-form-container .dropdown-item:hover {
   background-color: #f0f0f0;
 }
 
-.react-datepicker__year-read-view--down-arrow, .react-datepicker__month-read-view--down-arrow, .react-datepicker__month-year-read-view--down-arrow, .react-datepicker__navigation-icon::before {
+.scheduling-form-container .react-datepicker__year-read-view--down-arrow, .react-datepicker__month-read-view--down-arrow, .react-datepicker__month-year-read-view--down-arrow, .react-datepicker__navigation-icon::before {
     border-color: #ccc;
     border-style: solid;
     border-width: 3px 3px 0 0;
@@ -1058,19 +1056,19 @@ h5 {
     width: 9px;
 }
 
-.react-datepicker__navigation-icon--next::before {
+.scheduling-form-container .react-datepicker__navigation-icon--next::before {
     transform: rotate(45deg);
     left: -7px;
 }
 
-.react-datepicker__navigation-icon {
+.scheduling-form-container .react-datepicker__navigation-icon {
     position: relative;
     top: -1px;
     font-size: 20px;
     width: 0;
 }
 
-.loading-indicator {
+.scheduling-form-container .loading-indicator {
   position: fixed;
   top: 25%;
   left: 50%;
@@ -1085,11 +1083,11 @@ h5 {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-.loading-indicator.lower {
+.scheduling-form-container .loading-indicator.lower {
   top: 50% !important;
 }
 
-.loading-indicator p {
+.scheduling-form-container .loading-indicator p {
   margin: 10px 0 0;
   font-size: 18px;
 }
@@ -1100,7 +1098,7 @@ h5 {
   100% { transform: rotate(360deg); }
 }
 
-.spinner {
+.scheduling-form-container .spinner {
   border: 4px solid rgba(0, 0, 0, 0.1);
   border-top-color: #3498db; /* Blue color */
   border-radius: 50%;
@@ -1110,7 +1108,7 @@ h5 {
   margin: 0 auto 10px;
 }
 
-.Appointment .date {
+.scheduling-form-container .Appointment .date {
     background: #fff;
     display: block;
     font-family: Poppins, sans-serif;
@@ -1121,7 +1119,7 @@ h5 {
     width: 100px;
 }
 
-.Appointment .date .binds {
+.scheduling-form-container .Appointment .date .binds {
     background: #0000;
     border: 2px solid #999;
     border-width: 0 5px;
@@ -1134,7 +1132,7 @@ h5 {
     width: 70px;
 }
 
-.Appointment .date .month, .Appointment .date .time {
+.scheduling-form-container .Appointment .date .month, .Appointment .date .time {
     background: #337ab7;
     box-shadow: inset 0 -1px 0 0 #94ccfc;
     color: #fff;
@@ -1142,37 +1140,37 @@ h5 {
     font-weight: 700;
 }
 
-.Appointment .date .month {
+.scheduling-form-container .Appointment .date .month {
     border-bottom: 2px solid #337ab7;
     font-size: 12px;
     padding: 8px 0;
     text-transform: uppercase;
 }
 
-.Appointment .date .time {
+.scheduling-form-container .Appointment .date .time {
     border-top: 2px solid #337ab7;
     font-size: 16px;
     padding: 5px 0;
 }
 
-.Appointment .date .day-box {
+.scheduling-form-container .Appointment .date .day-box {
     box-shadow: 0 0 3px #ccc;
     display: block;
     margin: 0;
     position: relative;
 }
 
-.Appointment .date .day {
+.scheduling-form-container .Appointment .date .day {
     display: block;
     font-size: 48px;
     font-weight: 700;
     margin: 0 0 -10px;
     position: relative;
 }
-.progress-container {
+.scheduling-form-container .progress-container {
   
 }
-.progress-bar {
+.scheduling-form-container .progress-bar {
   width: 100%;
   height: 5px;
   background-color: #e0e0e0; /* Background of the entire progress bar */
@@ -1181,7 +1179,7 @@ h5 {
   left: 0;
 }
 
-.progress-bar-fill {
+.scheduling-form-container .progress-bar-fill {
   height: 100%;
   background-color: #337ab7; /* Color of the filled progress */
   transition: width 0.3s ease; /* Smooth transition for the width */

@@ -37,6 +37,7 @@ export default function EmbedSchedulingForm({ agent }) {
   const [customer, setCustomer] = useState(null);
   const [vehicles, setVehicles] = useState([]);
   const [services, setServices] = useState([]);
+  const [selectedService, setSelectedService] = useState(null);
   const [availability, setAvailability] = useState([]);
   const [filteredAvailability, setFilteredAvailability] = useState([]);
   const [step, setStep] = useState(1);
@@ -331,14 +332,15 @@ export default function EmbedSchedulingForm({ agent }) {
   const handleServiceSelect = (serviceId) => {
     console.log("services")
     console.log(services)
+    setSelectedService(serviceId);
     if(serviceId == "quickservice") {
-      serviceId = services.find(s => s.serviceName && s.serviceName.toLowerCase().includes("minder b"))?.opcode;
+      serviceId = services.find(s => s.serviceName && s.serviceName.toLowerCase().includes("minder b"))?.opcode || services.find(s => s.serviceName && s.serviceName.toLowerCase().includes("synthetic oil"))?.opcode;
     }
     else if (serviceId == "recalls") {
       serviceId = services.find(s => s.serviceName && s.serviceName.toLowerCase().includes("recall"))?.opcode;
     }
     else if (serviceId == "other") {
-      serviceId = services.find(s => s.serviceName && s.serviceName.toLowerCase().includes("tell us more"))?.opcode;
+      serviceId = services.find(s => s.serviceName && s.serviceName.toLowerCase().includes("describe what you need"))?.opcode;
     }
     setFormData((prevFormData) => ({
       ...prevFormData,
@@ -461,8 +463,15 @@ export default function EmbedSchedulingForm({ agent }) {
     //
   };
 
-  const reviewAppointmentSlot = async () => {
+  const keepMeInformed = async () => {
     changeStep(7);
+  }
+
+  const reviewAppointmentSlot = async (marketingOptIn) => {
+    if(marketingOptIn) {
+      console.log("opted into marketing...mark in API")
+    }
+    changeStep(8);
   }
 
   const getSelectedService = () => {
@@ -586,6 +595,9 @@ export default function EmbedSchedulingForm({ agent }) {
       return {"title": "Select Date/Time", "details": null}
     }
     if(step == 7) {
+      return {"title": "Keep Me Informed", "details": null}
+    }
+    if(step == 8) {
       return {"title": "Confirm Appointment", "details": "Please confirm your details."}
     }
   };
@@ -637,7 +649,7 @@ export default function EmbedSchedulingForm({ agent }) {
         )}
         {!loading && !apptSuccess && !apptCancel && (
           <>
-            <div class="header">
+            <div className="header">
               <div className="headerName">{`${targetAccount?.details.name}`}</div>
               <div className="flexbtn">              
                 {step !== 1 &&              
@@ -1013,7 +1025,9 @@ export default function EmbedSchedulingForm({ agent }) {
                   </div>
                 )}
                 <div className="calendar-container">
-                  <div className="notice">Mornings are often busy with customers dropping off cars. If you intend to wait at the dealership, please note that afternoon appointments typically have shorter wait times.</div>
+                  {selectedService == "quickservice" && <div className="notice">Mornings are often busy with customers dropping off cars. If you intend to wait at the dealership, please note that afternoon appointments typically have shorter wait times.</div>}
+                  {selectedService == "recalls" && <div className="notice">When scheduling your RECALL, please understand that some RECALLS require for your vehicle to be inspected and parts to be ordered which could generate a second visit. We apologize in advance for this inconvenience.</div>}
+                  {selectedService == "other" && <div className="notice">If your vehicle needs DIAGNOSTICS beyond general repair, This could take 24-48 hours. Thank you for your patience.</div>}
                   <div className="flex-te">                         
                       <DatePicker
                         selected={formData.appointmentDate ? moment(formData.appointmentDate).toDate() : null}
@@ -1065,7 +1079,7 @@ export default function EmbedSchedulingForm({ agent }) {
                   {formDataRef?.current?.appointmentDateTime && 
                   <>
                   <div className="date-footer theme-clr">{moment(formDataRef.current.appointmentDateTime).format("ddd, MMM D, h:mm A")}</div>
-                    <button type="submit" className=" sub-btn theme-btn" onClick={reviewAppointmentSlot}>
+                    <button type="submit" className=" sub-btn theme-btn" onClick={keepMeInformed}>
                     Review
                     </button>
                   </>
@@ -1077,12 +1091,22 @@ export default function EmbedSchedulingForm({ agent }) {
               </div>
               </div>
             )}
-
             {step === 7 && (
+              <div className="Appointment">
+                <form onSubmit={handleAppointmentSubmit}>
+                  <h3>{`Stay informed about your service visits, special deals and important updates about your car from ${`${targetAccount?.details?.name}`}.`}</h3>
+                  <div className="text-medium">{`By clicking the "KEEP ME INFORMED" button, you are agreeing to receive up to three automated reminders and/or marketing messages per month from us at the phone number you provide. Your consent is not a condition of making any purchase. Message and data rates may apply.`}</div>
+                  <button type="submit" className=" sub-btn theme-btn" onClick={() => reviewAppointmentSlot(true)}>Keep Me Informed</button>
+                  <button type="button" className="secondary sub-btn" onClick={() => reviewAppointmentSlot(false)}>No Thanks</button>
+                </form>
+              </div>
+            )}
+
+            {step === 8 && (
               <div className="Appointment">
               <form onSubmit={handleAppointmentSubmit}>
                 <div style={{"float": "left", "margin-right": "25px", "min-height": "300px"}}>
-                  <div class="date"><span class="binds"></span><span class="month" id="summary-month">August</span><div class="day-box"><h1 class="day" id="summary-day">16</h1><small class="dayOfWeek" id="summary-dayOfWeek">Friday</small></div><span class="time" id="summary-time">9:30 AM</span></div>
+                  <div className="date"><span className="binds"></span><span className="month" id="summary-month">August</span><div className="day-box"><h1 className="day" id="summary-day">16</h1><small className="dayOfWeek" id="summary-dayOfWeek">Friday</small></div><span className="time" id="summary-time">9:30 AM</span></div>
                 </div>
                 <div>
                   <div className="theme-clr">
@@ -1127,7 +1151,7 @@ export default function EmbedSchedulingForm({ agent }) {
         <div className="vidaLogo">
           <a href="https://vida.io" target="_blank" className="poweredBy">
               <span className="poweredByBlurb">Powered by</span>
-              <svg width="96" height="24" viewBox="0 0 800 200" fill="#000" xmlns="http://www.w3.org/2000/svg"><path d="M478.576 37C478.576 33.6863 475.89 31 472.576 31H454.647C451.333 31 448.647 33.6863 448.647 37V162.946C448.647 166.26 451.333 168.946 454.647 168.946H472.576C475.89 168.946 478.576 166.26 478.576 162.946V37Z" class="fill-current"></path><path d="M299 112.466V37C299 33.6863 301.686 31 305 31H322.534C325.848 31 328.534 33.6863 328.534 37V102.492C328.534 108.423 331.577 113.985 336.696 117.414L358.995 132.347C363.525 135.38 369.601 135.333 374.078 132.23L395.432 117.427C400.402 113.983 403.338 108.506 403.338 102.681V37C403.338 33.6863 406.024 31 409.338 31H427.259C430.572 31 433.259 33.6863 433.259 37V112.48C433.259 120.06 429.529 127.209 423.167 131.824L377.959 164.613C371.018 169.647 361.366 169.651 354.42 164.623L309.111 131.824C302.738 127.21 299 120.054 299 112.466Z" class="fill-current"></path><path d="M774 87.5338V163C774 166.314 771.314 169 768 169H750.466C747.152 169 744.466 166.314 744.466 163V97.5076C744.466 91.5771 741.423 86.0148 736.304 82.5864L714.005 67.6534C709.475 64.6198 703.399 64.6667 698.922 67.7701L677.568 82.5726C672.598 86.0173 669.663 91.4938 669.663 97.3188V163C669.663 166.314 666.976 169 663.663 169H645.741C642.428 169 639.741 166.314 639.741 163V87.5197C639.741 79.9396 643.471 72.7906 649.833 68.1761L695.041 35.3874C701.982 30.353 711.634 30.3488 718.58 35.3771L763.889 68.1765C770.262 72.7902 774 79.9457 774 87.5338Z" class="fill-current"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M499.617 168.879C496.303 168.879 493.617 166.193 493.617 162.879V37.1219C493.617 33.8082 496.303 31.1219 499.617 31.1219H592.796C610.603 31.1219 625.039 44.767 625.039 61.5992V138.402C625.039 155.234 610.603 168.879 592.796 168.879H499.617ZM523.151 140.596V59.2829H582.349C589.472 59.2829 595.246 64.741 595.246 71.4738V128.405C595.246 135.138 589.472 140.596 582.349 140.596H523.151Z" class="fill-current"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M82.1911 7.98047C87.8114 7.98047 92.3676 12.2875 92.3676 17.6005V181.14C92.3676 186.453 87.8114 190.76 82.1911 190.76H71.4927C65.8724 190.76 61.3163 186.453 61.3163 181.14V17.6005C61.3163 12.2875 65.8724 7.98047 71.4927 7.98047H82.1911ZM129.507 7.98047C135.128 7.98047 139.684 12.2875 139.684 17.6005V181.14C139.684 186.453 135.128 190.76 129.507 190.76H118.809C113.189 190.76 108.632 186.453 108.632 181.14V17.6005C108.632 12.2875 113.189 7.98047 118.809 7.98047H129.507ZM34.8748 43.5256C40.4951 43.5256 45.0513 47.8326 45.0513 53.1456L45.0513 142.876C45.0513 148.189 40.4952 152.496 34.8749 152.496L24.1765 152.496C18.5562 152.496 14 148.189 14 142.876L14 53.1456C14 47.8326 18.5562 43.5256 24.1765 43.5256L34.8748 43.5256ZM176.824 43.5256C182.444 43.5256 187 47.8326 187 53.1456L187 142.876C187 148.189 182.444 152.496 176.824 152.496L166.125 152.496C160.505 152.496 155.949 148.189 155.949 142.876L155.949 53.1456C155.949 47.8326 160.505 43.5256 166.125 43.5256L176.824 43.5256Z" class="fill-current"></path></svg>
+              <svg width="96" height="24" viewBox="0 0 800 200" fill="#000" xmlns="http://www.w3.org/2000/svg"><path d="M478.576 37C478.576 33.6863 475.89 31 472.576 31H454.647C451.333 31 448.647 33.6863 448.647 37V162.946C448.647 166.26 451.333 168.946 454.647 168.946H472.576C475.89 168.946 478.576 166.26 478.576 162.946V37Z" className="fill-current"></path><path d="M299 112.466V37C299 33.6863 301.686 31 305 31H322.534C325.848 31 328.534 33.6863 328.534 37V102.492C328.534 108.423 331.577 113.985 336.696 117.414L358.995 132.347C363.525 135.38 369.601 135.333 374.078 132.23L395.432 117.427C400.402 113.983 403.338 108.506 403.338 102.681V37C403.338 33.6863 406.024 31 409.338 31H427.259C430.572 31 433.259 33.6863 433.259 37V112.48C433.259 120.06 429.529 127.209 423.167 131.824L377.959 164.613C371.018 169.647 361.366 169.651 354.42 164.623L309.111 131.824C302.738 127.21 299 120.054 299 112.466Z" className="fill-current"></path><path d="M774 87.5338V163C774 166.314 771.314 169 768 169H750.466C747.152 169 744.466 166.314 744.466 163V97.5076C744.466 91.5771 741.423 86.0148 736.304 82.5864L714.005 67.6534C709.475 64.6198 703.399 64.6667 698.922 67.7701L677.568 82.5726C672.598 86.0173 669.663 91.4938 669.663 97.3188V163C669.663 166.314 666.976 169 663.663 169H645.741C642.428 169 639.741 166.314 639.741 163V87.5197C639.741 79.9396 643.471 72.7906 649.833 68.1761L695.041 35.3874C701.982 30.353 711.634 30.3488 718.58 35.3771L763.889 68.1765C770.262 72.7902 774 79.9457 774 87.5338Z" className="fill-current"></path><path fillRule="evenodd" clipRule="evenodd" d="M499.617 168.879C496.303 168.879 493.617 166.193 493.617 162.879V37.1219C493.617 33.8082 496.303 31.1219 499.617 31.1219H592.796C610.603 31.1219 625.039 44.767 625.039 61.5992V138.402C625.039 155.234 610.603 168.879 592.796 168.879H499.617ZM523.151 140.596V59.2829H582.349C589.472 59.2829 595.246 64.741 595.246 71.4738V128.405C595.246 135.138 589.472 140.596 582.349 140.596H523.151Z" className="fill-current"></path><path fillRule="evenodd" clipRule="evenodd" d="M82.1911 7.98047C87.8114 7.98047 92.3676 12.2875 92.3676 17.6005V181.14C92.3676 186.453 87.8114 190.76 82.1911 190.76H71.4927C65.8724 190.76 61.3163 186.453 61.3163 181.14V17.6005C61.3163 12.2875 65.8724 7.98047 71.4927 7.98047H82.1911ZM129.507 7.98047C135.128 7.98047 139.684 12.2875 139.684 17.6005V181.14C139.684 186.453 135.128 190.76 129.507 190.76H118.809C113.189 190.76 108.632 186.453 108.632 181.14V17.6005C108.632 12.2875 113.189 7.98047 118.809 7.98047H129.507ZM34.8748 43.5256C40.4951 43.5256 45.0513 47.8326 45.0513 53.1456L45.0513 142.876C45.0513 148.189 40.4952 152.496 34.8749 152.496L24.1765 152.496C18.5562 152.496 14 148.189 14 142.876L14 53.1456C14 47.8326 18.5562 43.5256 24.1765 43.5256L34.8748 43.5256ZM176.824 43.5256C182.444 43.5256 187 47.8326 187 53.1456L187 142.876C187 148.189 182.444 152.496 176.824 152.496L166.125 152.496C160.505 152.496 155.949 148.189 155.949 142.876L155.949 53.1456C155.949 47.8326 160.505 43.5256 166.125 43.5256L176.824 43.5256Z" className="fill-current"></path></svg>
           </a>
         </div>
         <div className="accountDetails">
