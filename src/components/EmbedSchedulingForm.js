@@ -469,7 +469,22 @@ export default function EmbedSchedulingForm({ agent }) {
 
   const reviewAppointmentSlot = async (marketingOptIn) => {
     if(marketingOptIn) {
-      console.log("opted into marketing...mark in API")
+      console.log("opted into marketing...mark in API")            
+    }
+    try {
+      const markResponse = await api.post("/api/v2/contact", {
+        id: formData.phoneNumber,
+        name: `${formData.firstName} ${formData.lastName}`,
+        email: `${formData.email}`,
+        contactSource: "coxauto",
+        leadSource: "coxauto",
+        marketingOptIn: marketingOptIn
+      });
+      console.log(markResponse)
+    }
+    catch(e) {
+      console.log("problem storing marketing opt-in value")
+      console.log(e)
     }
     changeStep(8);
   }
