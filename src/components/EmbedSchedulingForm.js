@@ -1108,12 +1108,10 @@ export default function EmbedSchedulingForm({ agent }) {
             )}
             {step === 7 && (
               <div className="Appointment">
-                <form onSubmit={handleAppointmentSubmit}>
-                  <h3>{`Stay informed about your service visits, special deals and important updates about your car from ${`${targetAccount?.details?.name}`}.`}</h3>
-                  <div className="text-medium">{`By clicking the "KEEP ME INFORMED" button, you are agreeing to receive up to three automated reminders and/or marketing messages per month from us at the phone number you provide. Your consent is not a condition of making any purchase. Message and data rates may apply.`}</div>
-                  <button type="submit" className=" sub-btn theme-btn" onClick={() => reviewAppointmentSlot(true)}>Keep Me Informed</button>
-                  <button type="button" className="secondary sub-btn" onClick={() => reviewAppointmentSlot(false)}>No Thanks</button>
-                </form>
+                <h3>{`Stay informed about your service visits, special deals and important updates about your car from ${`${targetAccount?.details?.name}`}.`}</h3>
+                <div className="text-medium">{`By clicking the "KEEP ME INFORMED" button, you are agreeing to receive up to three automated reminders and/or marketing messages per month from us at the phone number you provide. Your consent is not a condition of making any purchase. Message and data rates may apply.`}</div>
+                <button type="submit" className=" sub-btn theme-btn" onClick={() => reviewAppointmentSlot(true)}>Keep Me Informed</button>
+                <button type="button" className="secondary sub-btn" onClick={() => reviewAppointmentSlot(false)}>No Thanks</button>
               </div>
             )}
 
